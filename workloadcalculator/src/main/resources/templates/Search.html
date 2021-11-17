@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<img src="" alt="">
+		<b> Course Search </b>
+	</head>
+	<body>
+		<nav class="">
+		  <a href="/home" class="">Home</a>
+		  <a href="/courses/search" class="">Search</a>
+		  <a href="/courses/new" class="">New Entry</a>
+		</nav>
+		<form th:action="@{/search}" method="get">	
+			<input type="search" name="keyword" size="50">
+					<div class="col" th:each="course:${searchResult}">
+						<p><a th:href="@{/courses/} + ${course.id}"><span th:text="${course.courseName}"></span></a></p>
+					</div>
+			<input type="submit" value="Search Course">
+		</form>	
+	</body>
+</html>

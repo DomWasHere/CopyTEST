@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<img src="" alt="">
+		
+	</head>
+	<body>
+		<h1> Course Activity Information </h1>
+		<nav class="">
+		  <a href="/home" class="">Home</a>
+		  <a href="/courses/search" class="">Search</a>
+		  <a href="/courses/new" class="">New Entry</a>
+		</nav>
+		<form>
+			<label for="">Module Number</label>
+			<select name="module" id="module" placeholder="Please Select">
+			  <option value=""></option>
+			  <option value=""></option>
+			  <option value=""></option>
+			  <option value=""></option>
+			</select>
+		</form>
+		
+		<form th:action="@{/courses/} + ${course.id}" th:object="${module}"method="post" autocomplete="off">
+			<label for="moduleID">Module ID</label><br>
+			<input type="text" id="moduleID" name="moduleID" ><br>
+			
+			<label for="moduleNumber">Module Number</label><br>
+			<input type="text" id="moduleNumber" name="moduleNumber" th:field="*{moduleNumber}"><br>
+			
+			<label for="aboutPages">About Pages</label><br>
+			<input type="text" id="aboutPages" name="aboutPages" th:field="*{aboutPages}"><br>
+			
+			<label for="introductionText">Introduction Text</label><br>
+			<input type="text" id="introductionText" name="introductionText" th:field="*{introductionText}"><br>
+			
+			<label for="video">Video</label><br>
+			<input type="text" id="video" name="video" th:field="*{video}"><br>
+			
+			<label for="podcast">Podcast</label><br>
+			<input type="text" id="podcast" name="podcast" th:field="*{podcast}"><br>
+			
+			<label for="discussionText">Discussion Text</label><br>
+			<input type="text" id="discussionText" name="discussionText" th:field="*{discussionText}"><br>
+			
+			<label for="discussionVideo">Discussion Video</label><br>
+			<input type="text" id="discussionVideo" name="discussionVideo" th:field="*{discussionVideo}"><br>
+			
+			<label for="meetings">Meetings</label><br>
+			<input type="text" id="meetings" name="meetings" th:field="*{meetings}"><br>
+			
+			<label for="meetingLength">Meeting Length</label><br>
+			<input type="text" id="meetingLength" name="meetingLength" th:field="*{meetingsLength}"><br>
+			
+			<label for="lectureText">Lecture Text</label><br>
+			<input type="text" id="lectureText" name="lectureText" th:field="*{lectureText}"><br>
+			
+			<label for="lectureVideo">Lecture Video</label><br>
+			<input type="text" id="lectureVideo" name="lectureVideo" th:field="*{lectureVideo}"><br>
+			
+			<label for="readingArticles">Reading Articles</label><br>
+			<input type="text" id="readingArticles" name="readingArticles" th:field="*{readingArticles}"><br>
+			
+			<label for="paperbackBook">Paperback Book</label><br>
+			<input type="text" id="paperbackBook" name="paperbackBook" th:field="*{paperbackBook}"><br>
+			
+			<label for="academicMonograph">Academic Monograph</label><br>
+			<input type="text" id="academicMonograph" name="academicMonograph" th:field="*{academicMonograph}"><br>
+			
+			<label for="textbookReadings">Textbook Readings</label><br>
+			<input type="text" id="textbookReadings" name="textbookReadings" th:field="*{textbookReadings}"><br>
+			
+			<label for="reflectionNarrative">Reflection Narrative</label><br>
+			<input type="text" id="reflectionNarrative" name="reflectionNarrative" th:field="*{reflectionNarrative}"><br>
+			
+			<label for="argument">Argument</label><br>
+			<input type="text" id="argument" name="argument" th:field="*{argument}"><br>
+			
+			<label for="research">Research</label><br>
+			<input type="text" id="research" name="research" th:field="*{research}"><br>
+			
+			<label for="caseStudy">Case Study</label><br>
+			<input type="text" id="caseStudy" name="caseStudy" th:field="*{caseStudy}"><br>
+			
+			<label for="praticeActivities">Practice Activities</label><br>
+			<input type="text" id="praticeActivities" name="praticeActivities" th:field="*{practiceActivities}"><br>
+			
+			<label for="projects">Projects</label><br>
+			<input type="text" id="projects" name="projects" th:field="*{projects}"><br>
+			
+			<label for="studyHours">Study Hours</label><br>
+			<input type="text" id="studyHours" name="studyHours" th:field="*{studyHours}"><br>
+			
+			<label for="quizQuestions">Quiz Questions</label><br>
+			<input type="text" id="quizQuestions" name="quizQuestions" th:field="*{quizQuestions}"><br>
+			
+			<label for="praticeQuestions">Practice Questions</label><br>
+			<input type="text" id="praticeQuestions" name="praticeQuestions" th:field="*{practiceQuestions}"><br>
+			
+			<button name="Submit" value="Submit" type="Submit">Save Module</button>
+		</form>
+	
+	</body>
+</html>

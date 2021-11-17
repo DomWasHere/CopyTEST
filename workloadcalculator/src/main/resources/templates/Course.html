@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<a href="/home" class="">Home</a>
+		<a href="/courses/search" class="">Search</a>
+		<a href="/courses/new" class="">New Entry</a>
+		<form th:action="@{/courses}" th:object="${course}" method="post" autocomplete="off">
+			<label for="courseNumber">Course Number</label><br>
+			<input type="text" id="courseNumber" name="courseNumber" th:field="*{courseNumber}"><br>
+				
+			<label for="courseName">Course Name</label><br>
+			<input type="text" id="courseName" name="courseName" th:field="*{courseName}"><br>
+				
+			<label for="professorName">Professor Name</label><br>
+			<input type="text" id="professorName" name="professorName" th:field="*{professorName}"><br>
+				
+			<label for="semester">Semester</label><br>
+			<input type="text" id="semester" name="semester" th:field="*{semester}"><br>
+				
+			<label for="semesterYear">Semester Year</label><br>
+			<input type="text" id="semesterYear" name="semesterYear" th:field="*{semesterYear}"><br>
+				
+			<label for="degree">Degree</label><br>
+			<input type="text" id="degree" name="degree" th:field="*{degree}"><br>
+			<button name="Submit" value="Submit" type="Submit">Save Course</button>
+		</form>
+	</body>
+</html>
