@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
+	<link rel="stylesheet" href="/Styles.css">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+	
 	</head>
 	<body>
-		<a href="/home" class="">Home</a>
-		<a href="/courses/search" class="">Search</a>
-		<a href="/courses/new" class="">New Entry</a>
+		<nav>
+			<a href="/home" class="">Home</a> | 
+			<a href="/courses/search" class="">Search</a> | 
+			<a href="/courses/new" class="">New Entry</a>
+		</nav>
+		<div style="text-align: left"><img src="/sopalogo.png" width="100" /></div>
+		<div class="course">
+		<h1> Course Information</h1>
+		
 		<form th:action="@{/courses}" th:object="${course}" method="post" autocomplete="off">
-			<label for="courseNumber">Course Number</label><br>
-			<input type="text" id="courseNumber" name="courseNumber" th:field="*{courseNumber}"><br>
+			<fieldset>
+				<legend>Course Identifying Information</legend>
+				<label for="semester">  Semester&ensp;  </label>
+				<input type="text" id="semester" size="4" name="semester" th:field="*{semester}" class="input">
 				
-			<label for="courseName">Course Name</label><br>
-			<input type="text" id="courseName" name="courseName" th:field="*{courseName}"><br>
+				<label for="semesterYear"> Semester Year&ensp;  </label>
+				<input type="text" id="semesterYear" size="4" name="semesterYear" th:field="*{semesterYear}" class="input">
 				
-			<label for="professorName">Professor Name</label><br>
-			<input type="text" id="professorName" name="professorName" th:field="*{professorName}"><br>
+				<label for="courseURL">Course URL&ensp;</label> 
+				<input type="text" id="courseURL" name="courseURL" th:field="*{courseURL}" class="input"> <br> <br>
 				
-			<label for="semester">Semester</label><br>
-			<input type="text" id="semester" name="semester" th:field="*{semester}"><br>
-				
-			<label for="semesterYear">Semester Year</label><br>
-			<input type="text" id="semesterYear" name="semesterYear" th:field="*{semesterYear}"><br>
-				
-			<label for="degree">Degree</label><br>
-			<input type="text" id="degree" name="degree" th:field="*{degree}"><br>
-			<button name="Submit" value="Submit" type="Submit">Save Course</button>
+				<label for="courseNumber">Course Number&ensp;</label>
+				<input type="text" id="courseNumber" name="courseNumber" th:field="*{courseNumber}" class="input">
+					
+				<label for="courseName">Course Name&ensp;</label>
+				<input type="text" id="courseName" name="courseName" th:field="*{courseName}" class="input"> <br> <br>
+					
+				<label for="professorName">Professor Name&ensp;</label>
+				<input type="text" id="professorName" name="professorName" th:field="*{professorName}" class="input">	
+			</fieldset>
+			<div class="save">
+				<button name="Submit" value="Submit" type="Submit">Save Course</button>
+			</div>
 		</form>
+		</div>
 	</body>
 </html>

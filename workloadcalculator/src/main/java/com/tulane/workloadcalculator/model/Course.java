@@ -24,7 +24,7 @@ public class Course {
 	private String professorName;
 	private String semester;
 	private Integer semesterYear;
-	private String degree;
+	private String courseURL;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
 	private List<Module> modules;

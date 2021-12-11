@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<link rel="stylesheet" href="/Styles.css">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+	
+	</head>
+	<body>
+		<nav>
+			<a href="/home" class="">Home</a> | 
+			<a href="/courses/search" class="">Search</a> | 
+			<a href="/courses/new" class="">New Entry</a>
+		</nav>
+		<div style="text-align: left"><img src="/sopalogo.png" width="100" /></div>
+		<div class="course">
+			<h1> Course Information</h1>
+			
+			<form th:action="@{/edit/courses/} + ${course.id}" th:object="${course}" method="post" autocomplete="off">
+				<fieldset>
+					<legend>Course Identifying Information</legend>
+					<label for="semester">  Semester&ensp;  </label>
+					<input type="text" id="semester" size="4" name="semester" th:field="*{semester}" class="input">
+					
+					<label for="semesterYear"> Semester Year&ensp;  </label>
+					<input type="text" id="semesterYear" size="4" name="semesterYear" th:field="*{semesterYear}" class="input">
+					
+					<label for="courseURL">Course URL&ensp;</label> 
+					<input type="text" id="courseURL" name="courseURL" th:field="*{courseURL}" class="input"> <br> <br>
+					
+					<label for="courseNumber">Course Number&ensp;</label>
+					<input type="text" id="courseNumber" name="courseNumber" th:field="*{courseNumber}" class="input">
+						
+					<label for="courseName">Course Name&ensp;</label>
+					<input type="text" id="courseName" name="courseName" th:field="*{courseName}" class="input"> <br> <br>
+						
+					<label for="professorName">Professor Name&ensp;</label>
+					<input type="text" id="professorName" name="professorName" th:field="*{professorName}" class="input">	
+				</fieldset>
+				<div class="save">
+					<button name="Submit" type="Submit">Save Course</button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

@@ -14,7 +14,7 @@ public interface CourseRepository extends PagingAndSortingRepository<Course, Int
 
 	List<Course>findAllByCourseName(String courseName);
 	
-	@Query(value = "SELECT * FROM course WHERE (course_name || ' ' || professor_name || ' ' || semester || ' ' || 'degree') ILIKE CONCAT('%', ?1, '%') ORDER BY course_name", nativeQuery = true)
+	@Query(value = "SELECT * FROM course WHERE (course_name || ' ' || professor_name || ' ' || semester) ILIKE CONCAT('%', ?1, '%') ORDER BY course_name", nativeQuery = true)
 	List<Course> search(String keyword);
 	
 	Course findAllById(Integer id);

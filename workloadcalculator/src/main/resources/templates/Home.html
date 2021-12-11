@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<head>
-	<img src="" alt="">
-	<b> Course Workload Calculator </b>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/Styles.css">
+	</head>
+	<body>
+		<nav class="navbar">
+			<a href="/home" class="">Home</a> |
+			<a href="/courses/search" class="">Search</a> | 
+			<a href="/courses/new" class="">New Entry</a>
+		</nav>
+
+		<div style="text-align: left"><img src="/sopalogo.png" width="100" /></div>
+		<div class="body">
+			<h1> Course Workload Calculator </h1>
 
 
+			
+			<title> Course Workload Calculator </title>
 
-<nav class="">
-  <a href="/home" class="">Home</a>
-  <a href="/courses/search" class="">Search</a>
-  <a href="/courses/new" class="">New Entry</a>
+			<p>Welcome to the Course Workload Calculator for Tulane University</p>
 
-</nav>
-<title> Course Workload Calculator </title>
+			<h1>Purpose</h1>
+			<p>
+			This website is for entering information about the work that is expected to be completed by students 
+			in online courses in order to calculate the total number of hours students can expect to spend on the 
+			course. Target totals are provided so instructors may see immediately how their coursework aligns to 
+			the desired time targets. Capturing this data ensures that each online course offers an equivalent 
+			workload to in-person classes; so, students can feel confident that they are getting a similar experience 
+			regardless of the instruction method of the class they take.</p>
 
-<p>Welcome to the Course Workload Calculator for Tulane University</p>
+			<h2>Instructions</h2>
+			<ol>
+				<li>Click on the "Enter New Course" button if you are entering a course for the first time.</li>
+				<li>Click on the "Search" button if you want to return to a course that was already entered.</li>
+				<li>You can return to the Home screen at any time by clicking on the Home link at the top of the page.</li>
+			</ol>
 
-<h1>Purpose</h1>
-<p>
-This website is for entering information about the work that is expected to be completed by students <br/>
-in online courses in order to calculate the total number of hours students can expect to spend on the <br/>
-course. Target totals are provided so instructors may see immediately how their coursework aligns to <br/>
-the desired time targets. Capturing this data ensures that each online course offers an equivalent <br/>
-workload to in-person classes; so, students can feel confident that they are getting a similar experience <br/>
-regardless of the instruction method of the class they take.</p>
-
-<h2>Instructions</h2>
-<ol>
-	<li>Click on the "Enter New Course" button if you are entering a course for the first time.</li>
-	<li>Click on the "Search" button if you want to return to a course that was already entered.</li>
-	<li>You can return to the Home screen at any time by clicking on the Home link at the top of the page.</li>
-</ol>
-
-
-<button type="button">Search</button>
-<button type="button">Enter New Course</button>
-
-</body>
+			<div class="buttons">
+				<button type="button" onclick="location.href='/courses/search';">Search</button>
+				<button type="button" onclick="location.href='/courses/new';">Enter New Course</button>
+			</div>
+		</div>
+	</body>
 </html>

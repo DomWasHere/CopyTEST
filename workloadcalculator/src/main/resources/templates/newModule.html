@@ -3,7 +3,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<head>
-		
+		<script src="/script.js"></script>
 		<link rel="stylesheet" href="/Styles.css">
 	</head>
 	<body>
@@ -46,7 +46,7 @@
 		</div>
 			<hr>
 			
-			<h3>Current Module <span th:text="${module.moduleNumber}"></span></h3>
+			<h3>Add a New Module</h3>
 			
 			<a th:href="@{/courses/} + ${course.id}"><button>Add New Module</button></a>
 			<div class="dropdown">
@@ -59,8 +59,11 @@
 			</div>
 			
 			
-			<form th:action="@{/courses/} + ${course.id} + @{/modules/} + ${module.id}" th:object="${module}" onsubmit="return validateModuleForm()" method="post"  autocomplete="off">
+			<form th:action="@{/courses/} + ${course.id}" th:object="${module}"method="post" autocomplete="off">
 								
+				<label for="moduleNumber">Module Number</label><br>
+				<input type="text" id="moduleNumber" name="moduleNumber" th:field="*{moduleNumber}"><br>
+				
 				<fieldset>
 
 					<legend>Page Text</legend>
@@ -73,7 +76,7 @@
 					<label for="introductionText">Introduction Text</label><br>
 					<label>&emsp; &emsp;# of Words</label>
 					<input type="text" id="introductionText" name="introductionText" th:field="*{introductionText}" class="input" oninput="calculate()"><br>
-					<label th:if="${#fields.hasErrors('introductionText')}" th:errors="*{introductionText}" class="validation-message"></label>
+					
 					<label>&emsp; &emsp; Time(hours): </label><label id="introductionTotal"></label><br>
 				
 				</fieldset>
@@ -223,8 +226,8 @@
 					<label>&emsp; &emsp; Time(hours):</label><label id="practiceQuestionsTotal"></label><br>
 
 				</fieldset>
-					<label id="errors"></label>
-				<input name="Submit" value="Save Module" type="Submit" onclick="return validateModuleForm()">
+
+				<button name="Submit" value="Submit" type="Submit">Save Module</button>
 			</form>
 		</div>
 		<script type="text/javascript" src="/script.js"></script>

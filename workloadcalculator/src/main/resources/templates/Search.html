@@ -3,21 +3,30 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<head>
-		<img src="" alt="">
-		<b> Course Search </b>
+	<link rel="stylesheet" href="/Styles.css">
+		
 	</head>
 	<body>
 		<nav class="">
-		  <a href="/home" class="">Home</a>
-		  <a href="/courses/search" class="">Search</a>
+		  <a href="/home" class="">Home</a> |
+		  <a href="/courses/search" class="">Search</a> | 
 		  <a href="/courses/new" class="">New Entry</a>
 		</nav>
-		<form th:action="@{/search}" method="get">	
-			<input type="search" name="keyword" size="50">
+		<div style="text-align: left"><img src="/sopalogo.png" width="100" /></div>
+		<div class="search body">
+			<h1> Course Search </h1>
+			<form th:action="@{/search}" method="get">	
+				<input type="search" name="keyword" size="50" class="courseSearch" width="100">
+				<input type="submit" value="Search Course" id="search">
+				<h1 class="results">Search Results</h1>
+				<fieldset>
+					<legend>Courses</legend>
 					<div class="col" th:each="course:${searchResult}">
 						<p><a th:href="@{/courses/} + ${course.id}"><span th:text="${course.courseName}"></span></a></p>
 					</div>
-			<input type="submit" value="Search Course">
-		</form>	
+				</fieldset>
+			</form>
+			
+		</div>
 	</body>
 </html>
