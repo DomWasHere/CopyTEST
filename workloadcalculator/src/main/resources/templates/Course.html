@@ -21,7 +21,11 @@
 			<fieldset>
 				<legend>Course Identifying Information</legend>
 				<label for="semester">  Semester&ensp;  </label>
-				<input type="text" id="semester" size="4" name="semester" th:field="*{semester}" class="input">
+				<select id="semester" name="semester" th:field="*{semester}">
+					<option th:value="'Spring'" th:text="Spring"></option>
+					<option th:value="'Summer'" th:text="Summer"></option>
+					<option th:value="'Fall'" th:text="Fall"></option>
+				</select>
 				
 				<label for="semesterYear"> Semester Year&ensp;  </label>
 				<input type="text" id="semesterYear" size="4" name="semesterYear" th:field="*{semesterYear}" class="input">
@@ -36,7 +40,10 @@
 				<input type="text" id="courseName" name="courseName" th:field="*{courseName}" class="input"> <br> <br>
 					
 				<label for="professorName">Professor Name&ensp;</label>
-				<input type="text" id="professorName" name="professorName" th:field="*{professorName}" class="input">	
+				<input type="text" id="professorName" name="professorName" th:field="*{professorName}" class="input">
+				
+				<label for="courseCredits">Course Credits&ensp;</label>
+				<input type="text" id="courseCredits" name="courseCredits" th:field="*{courseCredits}" class="input">	
 			</fieldset>
 			<div class="save">
 				<button name="Submit" value="Submit" type="Submit">Save Course</button>

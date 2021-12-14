@@ -29,4 +29,6 @@ public class Course {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
 	private List<Module> modules;
 	
+	private Integer courseCredits;
+	
 }

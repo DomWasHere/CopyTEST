@@ -18,7 +18,9 @@ window.onclick = function(event) {
 	}
 
 window.onload = function(){
+	//document.getElementById("contactGoals").innerHTML = "I changed";
 	calculate();
+	
 }
 
 function validateModuleForm(){
@@ -46,7 +48,7 @@ function validateModuleForm(){
 	let quizQuestions = document.getElementById("quizQuestions").value;
 	let practiceQuestions = document.getElementById("practiceQuestions").value;
 	let errors = document.getElementById("errors");
-	
+
 	console.log("Function Called!");
 	
 	
@@ -135,7 +137,7 @@ function calculate(){
 	let introductionText = document.getElementById("introductionText").value;
 	let introductionTotal = introductionText/180/60;
 	document.getElementById("introductionTotal").innerHTML = introductionTotal.toFixed(4);
-	
+
 	let videoTime = document.getElementById("video").value;
 	let videoTotal = videoTime * 1.5 / 60;
 	document.getElementById("videoTotal").innerHTML = videoTotal.toFixed(4);
@@ -149,12 +151,12 @@ function calculate(){
 	document.getElementById("discussionTextTotal").innerHTML = discussionTextTotal.toFixed(4);
 	
 	let discussionVideo = document.getElementById("discussionVideo").value;
-	let discussionVideoTotal = discussionVideo / 1.5;
+	let discussionVideoTotal = discussionVideo * 1.5 / 60;
 	document.getElementById("discussionVideoTotal").innerHTML = discussionVideoTotal.toFixed(4);
 	
 	let meetings = document.getElementById("meetings").value;
 	let meetingsLength = document.getElementById("meetingLength").value;
-	meetingsTotal = meetings * meetingsLength;
+	let meetingsTotal = meetings * meetingsLength;
 	document.getElementById("meetingsTotal").innerHTML = meetingsTotal.toFixed(4);
 	
 	let lectureText = document.getElementById("lectureText").value;
@@ -217,8 +219,57 @@ function calculate(){
 	let practiceQuestionsTotal = practiceQuestions * 1.5 / 60;
 	document.getElementById("practiceQuestionsTotal").innerHTML = practiceQuestionsTotal.toFixed(4);
 	
+	//calculates goal totals
+	let creditHours = document.getElementById("courseCredits").innerHTML;
+	let courseHours = creditHours * 37.5 - 4.5;
+	let moduleGoal = courseHours / 12;
+	let contactHoursGoal = moduleGoal / 3;
+	let independentHoursGoal = contactHoursGoal * 2;
 	
+	document.getElementById("contactGoals").innerHTML = creditHours + " Hours";
+	document.getElementById("independentGoals").innerHTML = independentHoursGoal + " Hours";
+	document.getElementById("moduleGoal").innerHTML = moduleGoal + " Hours";
 	
+	//calculates actual hours
+	actualContactHours = aboutTotal + introductionTotal + videoTotal + podcastTotal + discussionTextTotal + discussionVideoTotal + meetingsTotal + lectureTextTotal + lectureVideoTotal;
+	document.getElementById("actualContactHours").innerHTML = actualContactHours.toFixed(4);
+	actualIndependentHours = readingArticlesTotal + paperbackBookTotal + academicMonographTotal + textbookReadingsTotal + reflectionNarrativeTotal + argumentTotal + researchTotal + caseStudyTotal + practiceActivitiesTotal + projectsTotal + studyHoursTotal + quizQuestionsTotal + practiceQuestionsTotal;
+	document.getElementById("actualIndependentHours").innerHTML = actualIndependentHours.toFixed(4);
+	actualModuleHours = actualContactHours + actualIndependentHours;
+	document.getElementById("actualModuleHours").innerHTML = actualModuleHours.toFixed(4);
+	
+	contactHoursDifference = contactHoursGoal - actualContactHours;
+	independentHoursDifference = independentHoursGoal - actualIndependentHours;
+	moduleHoursDifference = moduleGoal - actualModuleHours;
+	
+	document.getElementById("contactHoursDifference").innerHTML = contactHoursDifference.toFixed(4);
+	document.getElementById("independentHoursDifference").innerHTML = independentHoursDifference.toFixed(4);
+	document.getElementById("moduleHoursDifference").innerHTML = moduleHoursDifference.toFixed(4);
+	
+	console.log(Math.abs(contactHoursDifference));
+	console.log(contactHoursGoal * .1);
+	
+	//Red text to show differences are out of range
+	if (Math.abs(contactHoursDifference) > (contactHoursGoal * .1)){
+		document.getElementById("contactHoursDifference").style.color = "red";
+	}
+	if (Math.abs(contactHoursDifference) < (contactHoursGoal * .1)){
+		document.getElementById("contactHoursDifference").style.color = "black";
+	}
+	
+	if (Math.abs(independentHoursDifference) > (independentHoursGoal * .1)){
+		document.getElementById("independentHoursDifference").style.color = "red";
+	}
+	if (Math.abs(independentHoursDifference) < (independentHoursGoal * .1)){
+		document.getElementById("independentHoursDifference").style.color = "black";
+	}
+	
+	if (Math.abs(moduleHoursDifference) > (moduleGoal * .1)){
+		document.getElementById("moduleHoursDifference").style.color = "red";
+	}
+	if (Math.abs(moduleHoursDifference) < (moduleGoal * .1)){
+		document.getElementById("moduleHoursDifference").style.color = "black";
+	}
 }
 
 

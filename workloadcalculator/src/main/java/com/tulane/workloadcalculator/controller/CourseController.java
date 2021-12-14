@@ -59,7 +59,7 @@ public class CourseController {
 	public String submitCourseForm(Course course, Model model) {
 		courseService.save(course);
 		model.addAttribute("successMessage", "Course successfully created!");
-		return "Course";
+		return "Search";
 	}
 	
 	@GetMapping(value= {"/courses/{course.id}"})
@@ -100,39 +100,41 @@ public class CourseController {
 		return "Module";
 	}
 	@PostMapping(value= {"/courses/{course.id}/modules/{module.id}"})
-	public String submitModuleForm(@PathVariable(value = "course.id")Integer id, Module module, Model model, @PathVariable(value="module.id")Integer moduleId, HttpServletRequest req) {
+	public String submitModuleForm(@PathVariable(value = "course.id")Integer id,@Valid Module module, BindingResult bindingResult, Model model, @PathVariable(value="module.id")Integer moduleId, HttpServletRequest req) {
 		Course course = courseService.findAllById(id);
 		model.addAttribute("course", course);
-			
+		
 		
 		module = moduleService.findAllById(moduleId);
-			
+		
+		
+		if(!bindingResult.hasErrors()) {
 		module.setCourse(course);
 		module.setId(moduleId);
 		module.setModuleNumber(module.getModuleNumber());
-		module.setAboutPages(Integer.parseInt(req.getParameter("aboutPages")));
-		module.setIntroductionText(Integer.parseInt(req.getParameter("introductionText")));
-		module.setVideo(Integer.parseInt(req.getParameter("video")));
-		module.setPodcast(Integer.parseInt(req.getParameter("podcast")));
-		module.setDiscussionText(Integer.parseInt(req.getParameter("discussionText")));
-		module.setDiscussionVideo(Integer.parseInt(req.getParameter("discussionVideo")));
-		module.setMeetings(Integer.parseInt(req.getParameter("meetings")));
-		module.setMeetingsLength(Integer.parseInt(req.getParameter("meetingsLength")));
-		module.setLectureText(Integer.parseInt(req.getParameter("lectureText")));
-		module.setLectureVideo(Integer.parseInt(req.getParameter("lectureVideo")));
-		module.setReadingArticles(Integer.parseInt(req.getParameter("readingArticles")));
-		module.setPaperbackBook(Integer.parseInt(req.getParameter("paperbackBook")));
-		module.setAcademicMonograph(Integer.parseInt(req.getParameter("academicMonograph")));
-		module.setTextbookReadings(Integer.parseInt(req.getParameter("textbookReadings")));
-		module.setReflectionNarrative(Integer.parseInt(req.getParameter("reflectionNarrative")));
-		module.setArgument(Integer.parseInt(req.getParameter("argument")));
-		module.setResearch(Integer.parseInt(req.getParameter("research")));
-		module.setCaseStudy(Integer.parseInt(req.getParameter("caseStudy")));
-		module.setPracticeActivities(Integer.parseInt(req.getParameter("practiceActivities")));
-		module.setProjects(Integer.parseInt(req.getParameter("projects")));
-		module.setStudyHours(Integer.parseInt(req.getParameter("studyHours")));
-		module.setQuizQuestions(Integer.parseInt(req.getParameter("quizQuestions")));
-		module.setPracticeQuestions(Integer.parseInt(req.getParameter("practiceQuestions")));
+		module.setAboutPages(Float.parseFloat(req.getParameter("aboutPages")));
+		module.setIntroductionText(Float.parseFloat(req.getParameter("introductionText")));
+		module.setVideo(Double.parseDouble(req.getParameter("video")));
+		module.setPodcast(Double.parseDouble(req.getParameter("podcast")));
+		module.setDiscussionText(Double.parseDouble(req.getParameter("discussionText")));
+		module.setDiscussionVideo(Double.parseDouble(req.getParameter("discussionVideo")));
+		module.setMeetings(Double.parseDouble(req.getParameter("meetings")));
+		module.setMeetingsLength(Double.parseDouble(req.getParameter("meetingsLength")));
+		module.setLectureText(Double.parseDouble(req.getParameter("lectureText")));
+		module.setLectureVideo(Double.parseDouble(req.getParameter("lectureVideo")));
+		module.setReadingArticles(Double.parseDouble(req.getParameter("readingArticles")));
+		module.setPaperbackBook(Double.parseDouble(req.getParameter("paperbackBook")));
+		module.setAcademicMonograph(Double.parseDouble(req.getParameter("academicMonograph")));
+		module.setTextbookReadings(Double.parseDouble(req.getParameter("textbookReadings")));
+		module.setReflectionNarrative(Double.parseDouble(req.getParameter("reflectionNarrative")));
+		module.setArgument(Double.parseDouble(req.getParameter("argument")));
+		module.setResearch(Double.parseDouble(req.getParameter("research")));
+		module.setCaseStudy(Double.parseDouble(req.getParameter("caseStudy")));
+		module.setPracticeActivities(Double.parseDouble(req.getParameter("practiceActivities")));
+		module.setProjects(Double.parseDouble(req.getParameter("projects")));
+		module.setStudyHours(Double.parseDouble(req.getParameter("studyHours")));
+		module.setQuizQuestions(Double.parseDouble(req.getParameter("quizQuestions")));
+		module.setPracticeQuestions(Double.parseDouble(req.getParameter("practiceQuestions")));
 		List<Module> modules = moduleService.findAllByCourse(course);
 		model.addAttribute("modules", modules);
 		model.addAttribute("module", module);
@@ -140,8 +142,10 @@ public class CourseController {
 			
 		moduleService.save(module);
 		model.addAttribute("successMessage", "Module successfully saved!");
-			
-			
+		}
+		
+		moduleId = module.getId();
+		model.addAttribute("module", module);
 		return "Module";
 	}
 	
@@ -167,8 +171,9 @@ public class CourseController {
 		course.setCourseNumber(req.getParameter("courseNumber"));
 		course.setCourseName(req.getParameter("courseName"));
 		course.setProfessorName(req.getParameter("professorName"));
+		course.setCourseCredits(Integer.parseInt(req.getParameter("courseCredits")));
 		courseService.save(course);
 		
-		return "editCourse";
+		return "Search";
 	}
 }

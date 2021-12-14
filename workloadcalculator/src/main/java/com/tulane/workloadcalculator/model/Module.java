@@ -9,8 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-//import javax.validation.constraints.Positive;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.OnDelete;
@@ -36,95 +34,95 @@ public class Module {
 
 	private Integer moduleNumber;
 	
-	@NotNull(message = "Input must be a positive number")
+	@NotNull(message = "Input must not be empty")
 	@Min(value=0, message="Input must be a positive number")
-	private long aboutPages;
+	private float aboutPages;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long introductionText;
+	private float introductionText;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long video;
+	private double video;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long podcast;
+	private double podcast;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long discussionText;
+	private double discussionText;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long discussionVideo;
+	private double discussionVideo;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long meetings;
+	private double meetings;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long meetingsLength;
+	private double meetingsLength;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long lectureText;
+	private double lectureText;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long lectureVideo;
+	private double lectureVideo;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long readingArticles;
+	private double readingArticles;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long paperbackBook;
+	private double paperbackBook;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long academicMonograph;
+	private double academicMonograph;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long textbookReadings;
+	private double textbookReadings;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long reflectionNarrative;
+	private double reflectionNarrative;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long argument;
+	private double argument;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long research;
+	private double research;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long caseStudy;
+	private double caseStudy;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long practiceActivities;
+	private double practiceActivities;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long projects;
+	private double projects;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long studyHours;
+	private double studyHours;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long quizQuestions;
+	private double quizQuestions;
 	
 	@NotNull(message = "Input must be a positive number")
 	@Min(value=0, message="Input must be a positive number")
-	private long practiceQuestions;
+	private double practiceQuestions;
 }

@@ -38,6 +38,7 @@
 					
 				<label for="professorName">Professor Name: <span th:text="*{professorName}"></span>&ensp;</label>
 				
+				<label for="courseCredits">Course Credits: <span th:text="*{courseCredits}" id="courseCredits"></span>&ensp;</label>
 			</fieldset>
 			<div class="save">
 				<a th:href="@{/edit/courses/} + ${course.id}">Edit Course</a>
@@ -46,74 +47,76 @@
 		</div>
 			<hr>
 			
-			<h3>Add a New Module</h3>
-			
-			<a th:href="@{/courses/} + ${course.id}"><button>Add New Module</button></a>
-			<div class="dropdown">
-				<button class="dropbtn" onclick="dropDown()">Select Module</button>
-				<div id="myDropdown" class="dropdown-content" >
-					<div th:each="module:${modules}">
-						<a th:href="@{/courses/} + ${course.id} + @{/modules/} + ${module.id}"><span th:text="${module.moduleNumber}"></span></a>
+			<h2>Add a New Module</h2>
+			<div class="margins">
+				<a th:href="@{/courses/} + ${course.id}"><button>Add New Module</button></a>
+				<div class="dropdown">
+					<button class="dropbtn" onclick="dropDown()">Select Module</button>
+					<div id="myDropdown" class="dropdown-content" >
+						<div th:each="module:${modules}">
+							<a th:href="@{/courses/} + ${course.id} + @{/modules/} + ${module.id}"><span th:text="${module.moduleNumber}"></span></a>
+						</div>
 					</div>
 				</div>
 			</div>
-			
 			
 			<form th:action="@{/courses/} + ${course.id}" th:object="${module}"method="post" autocomplete="off">
 								
 				<label for="moduleNumber">Module Number</label><br>
 				<input type="text" id="moduleNumber" name="moduleNumber" th:field="*{moduleNumber}"><br>
 				
-				<fieldset>
-
-					<legend>Page Text</legend>
-					<label for="aboutPages">About/End Page</label><br>
-					<label>&emsp; &emsp; # of Words </label>
-					<input type="text" id="aboutPages" name="aboutPages" th:field="*{aboutPages}" class="input" maxlength="4" size="4" oninput="calculate()"><br>
+				<h3>Contact Hours</h3>
+					<fieldset>
+	
+						<legend>Page Text</legend>
+						<label for="aboutPages">About/End Page</label><br>
+						<label>&emsp; &emsp; # of Words </label>
+						<input type="text" id="aboutPages" name="aboutPages" th:field="*{aboutPages}" class="input" oninput="calculate()"><br>
+						
+						<label>&emsp; &emsp; Time(hours): </label><label id="aboutTotal"></label><br>
+						
+						<label for="introductionText">Introduction Text</label><br>
+						<label>&emsp; &emsp;# of Words</label>
+						<input type="text" id="introductionText" name="introductionText" th:field="*{introductionText}" class="input" oninput="calculate()"><br>
+						
+						<label>&emsp; &emsp; Time(hours): </label><label id="introductionTotal"></label><br>
 					
-					<label>&emsp; &emsp; Time(hours): </label><label id="aboutTotal"></label><br>
-					
-					<label for="introductionText">Introduction Text</label><br>
-					<label>&emsp; &emsp;# of Words</label>
-					<input type="text" id="introductionText" name="introductionText" th:field="*{introductionText}" class="input" oninput="calculate()"><br>
-					
-					<label>&emsp; &emsp; Time(hours): </label><label id="introductionTotal"></label><br>
+					</fieldset>
+	
+					<fieldset>
+	
+						<legend>Videos/Podcasts</legend>
+						<label for="video">Videos</label><br>
+						<label>&emsp; &emsp; # of Minutes</label>
+						<input type="text" id="video" name="video" th:field="*{video}" class="input" oninput="calculate()"><br>
+						<label>&emsp; &emsp; Time(hours):</label><label id="videoTotal"></label><br>
+	
+						<label for="podcast">Podcasts</label><br>
+						<label>&emsp; &emsp; # of Minutes</label>
+						<input type="text" id="podcast" name="podcast" th:field="*{podcast}" class="input" oninput="calculate()"><br>
+						<label>&emsp; &emsp; Time(hours):</label><label id="podcastTotal"></label><br>
+	
+					</fieldset>
+	
+					<fieldset>
+	
+						<legend>Discussion Posts</legend>
+						<label for="discussionText">Discussion Text</label><br>
+						<label>&emsp; &emsp; # of Words </label>
+						<input type="text" id="discussionText" name="discussionText" th:field="*{discussionText}" class="input" oninput="calculate()"><br>
+						<label>&emsp; &emsp; Time(hours):</label><label id="discussionTextTotal"></label><br>
+	
+						<label for="discussionVideo">Discussion Video</label><br>
+						<label>&emsp; &emsp; # of Minutes</label>
+						<input type="text" id="discussionVideo" class="input" name="discussionVideo" th:field="*{discussionVideo}" oninput="calculate()"><br>
+						<label>&emsp; &emsp; Time(hours):</label><label id="discussionVideoTotal"></label><br>
+	
+					</fieldset>
 				
-				</fieldset>
-
+				
 				<fieldset>
 
-					<legend>Videos/Podcasts</legend>
-					<label for="video">Videos</label><br>
-					<label>&emsp; &emsp; # of Minutes</label>
-					<input type="text" id="video" name="video" th:field="*{video}" class="input" oninput="calculate()"><br>
-					<label>&emsp; &emsp; Time(hours):</label><label id="videoTotal"></label><br>
-
-					<label for="podcast">Podcasts</label><br>
-					<label>&emsp; &emsp; # of Minutes</label>
-					<input type="text" id="podcast" name="podcast" th:field="*{podcast}" class="input" oninput="calculate()"><br>
-					<label>&emsp; &emsp; Time(hours):</label><label id="podcastTotal"></label><br>
-
-				</fieldset>
-
-				<fieldset>
-
-					<legend>Discussion Posts</legend>
-					<label for="discussionText">Discussion Text</label><br>
-					<label>&emsp; &emsp; # of Words </label>
-					<input type="text" id="discussionText" name="discussionText" th:field="*{discussionText}" class="input" oninput="calculate()"><br>
-					<label>&emsp; &emsp; Time(hours):</label><label id="discussionTextTotal"></label><br>
-
-					<label for="discussionVideo">Discussion Video</label><br>
-					<label>&emsp; &emsp; # of Minutes</label>
-					<input type="text" id="discussionVideo" class="input" name="discussionVideo" th:field="*{discussionVideo}" oninput="calculate()"><br>
-					<label>&emsp; &emsp; Time(hours):</label><label id="discussionVideoTotal"></label><br>
-
-				</fieldset>
-
-				<fieldset>
-
-					<legend>Class Meetings/Zoom Sessions</legend>
+					<legend>Class Meetings</legend>
 					<label for="meetings">Number of Meetings</label><br>
 					<input type="text" oninput="calculate()" id="meetings" name="meetings" th:field="*{meetings}" class="input"><br>
 					
@@ -122,7 +125,7 @@
 
 					<label>Time(hours):</label><label id="meetingsTotal"></label><br>
 				</fieldset>
-
+				
 				<fieldset>
 					<legend>Lecture</legend>
 					<label for="lectureText">Lecture Text</label><br>
@@ -136,7 +139,11 @@
 					<label>&emsp; &emsp; Time(hours):</label><label id="lectureVideoTotal"></label><br>
 
 				</fieldset>
-
+				
+				<div class="clear">
+				<h3>Independent Hours</h3>
+				
+				</div>
 				<fieldset>
 					<legend>Reading</legend>
 					<label for="readingArticles">Reading Articles</label><br>
@@ -162,7 +169,22 @@
 					<label>&emsp; &emsp; Time(hours):</label><label id="textbookReadingsTotal"></label><br>
 
 				</fieldset>
+					
+				<fieldset>
 
+					<legend>Quiz/Exam</legend>
+					<label for="quizQuestions">Quiz Questions</label><br>
+					<label>&emsp; &emsp; # of Questions: </label>
+					<input type="text" oninput="calculate()" id="quizQuestions" name="quizQuestions" th:field="*{quizQuestions}" class="input"><br>
+					<label>&emsp; &emsp; Time(hours):</label><label id="quizQuestionsTotal"></label><br><br>
+
+					<label for="praticeQuestions">Practice Questions</label><br>
+					<label>&emsp; &emsp; # of Questions: </label>
+					<input type="text" oninput="calculate()" id="practiceQuestions" name="praticeQuestions" th:field="*{practiceQuestions}" class="input"><br>
+					<label>&emsp; &emsp; Time(hours):</label><label id="practiceQuestionsTotal"></label><br>
+
+				</fieldset>
+					
 				<fieldset>
 					<legend>Writing Assignments</legend>
 					<label for="reflectionNarrative">Reflection Narrative</label><br>
@@ -212,23 +234,24 @@
 
 				</fieldset>
 
-				<fieldset>
-
-					<legend>Quiz/Exam</legend>
-					<label for="quizQuestions">Quiz Questions</label><br>
-					<label>&emsp; &emsp; # of Questions: </label>
-					<input type="text" oninput="calculate()" id="quizQuestions" name="quizQuestions" th:field="*{quizQuestions}" class="input"><br>
-					<label>&emsp; &emsp; Time(hours):</label><label id="quizQuestionsTotal"></label><br><br>
-
-					<label for="praticeQuestions">Practice Questions</label><br>
-					<label>&emsp; &emsp; # of Questions: </label>
-					<input type="text" oninput="calculate()" id="practiceQuestions" name="praticeQuestions" th:field="*{practiceQuestions}" class="input"><br>
-					<label>&emsp; &emsp; Time(hours):</label><label id="practiceQuestionsTotal"></label><br>
-
+				
+				<fieldset id="totalfields">
+				<h3>Totals</h3>
+				
+				<label>Contact Hours Goal: &emsp;</label><label id="contactGoals"></label>&emsp;
+				<label>Independent Work Goal: &emsp;</label><label id="independentGoals"></label>&emsp;
+				<label>Module Goal: &emsp;</label><label id="moduleGoal"></label> <br>
+				<label>Contact Hours Actual: &emsp;</label><label id="actualContactHours"></label>&emsp;
+				<label>Independent Work Actual: &emsp;</label><label id="actualIndependentHours"></label>&emsp;
+				<label>Module Actual: &emsp;</label><label id="actualModuleHours"></label><br>
+				<label>Contact Hours Difference: &emsp;</label><label id="contactHoursDifference"></label>&emsp;
+				<label>Independent Work Difference: &emsp;</label><label id="independentHoursDifference"></label>&emsp;
+				<label>Module Difference: &emsp;</label><label id="moduleHoursDifference"></label><br>
 				</fieldset>
-
 				<button name="Submit" value="Submit" type="Submit">Save Module</button>
 			</form>
+			
+			
 		</div>
 		<script type="text/javascript" src="/script.js"></script>
 	</body>
