@@ -25,12 +25,12 @@ window.onload = function(){
 
 function validateModuleForm(){
 	let moduleNumber = document.getElementById("moduleNumber").value;
-	let aboutPages = document.getElementById("aboutPages").value;
-	let introductionText = document.getElementById("introductionText").value;
+	//let aboutPages = document.getElementById("aboutPages").value;
+	//let introductionText = document.getElementById("introductionText").value;
 	let videoTime = document.getElementById("video").value;
 	let podcastTime = document.getElementById("podcast").value;
-	let discussionText = document.getElementById("discussionText").value;
-	let discussionVideo = document.getElementById("discussionVideo").value;
+	//let discussionText = document.getElementById("discussionText").value;
+	//let discussionVideo = document.getElementById("discussionVideo").value;
 	let meetings = document.getElementById("meetings").value;
 	let lectureText = document.getElementById("lectureText").value;
 	let lectureVideo = document.getElementById("lectureVideo").value;
@@ -130,94 +130,94 @@ function validateModuleForm(){
 }
 //Function to calculate the totals for the entire module.
 function calculate(){
-	let aboutPages = document.getElementById("aboutPages").value;
+	/*let aboutPages = document.getElementById("aboutPages").value;
 	let aboutTotal = aboutPages/180/60;
 	document.getElementById("aboutTotal").innerHTML = aboutTotal.toFixed(4);
 	
 	let introductionText = document.getElementById("introductionText").value;
 	let introductionTotal = introductionText/180/60;
 	document.getElementById("introductionTotal").innerHTML = introductionTotal.toFixed(4);
-
+*/
 	let videoTime = document.getElementById("video").value;
 	let videoTotal = videoTime * 1.5 / 60;
-	document.getElementById("videoTotal").innerHTML = videoTotal.toFixed(4);
+	document.getElementById("videoTotal").innerHTML = videoTotal.toFixed(2);
 	
 	let podcastTime = document.getElementById("podcast").value;
 	let podcastTotal = podcastTime * 1.5 /60;
-	document.getElementById("podcastTotal").innerHTML = podcastTotal.toFixed(4);
+	document.getElementById("podcastTotal").innerHTML = podcastTotal.toFixed(2);
 	
-	let discussionText = document.getElementById("discussionText").value;
+	/*let discussionText = document.getElementById("discussionText").value;
 	let discussionTextTotal = discussionText / 125;
 	document.getElementById("discussionTextTotal").innerHTML = discussionTextTotal.toFixed(4);
 	
 	let discussionVideo = document.getElementById("discussionVideo").value;
 	let discussionVideoTotal = discussionVideo * 1.5 / 60;
 	document.getElementById("discussionVideoTotal").innerHTML = discussionVideoTotal.toFixed(4);
-	
+	*/
 	let meetings = document.getElementById("meetings").value;
 	let meetingsLength = document.getElementById("meetingLength").value;
 	let meetingsTotal = meetings * meetingsLength;
-	document.getElementById("meetingsTotal").innerHTML = meetingsTotal.toFixed(4);
+	document.getElementById("meetingsTotal").innerHTML = meetingsTotal.toFixed(2);
 	
 	let lectureText = document.getElementById("lectureText").value;
 	let lectureTextTotal = lectureText / 180 / 60;
-	document.getElementById("lectureTextTotal").innerHTML = lectureTextTotal.toFixed(4);
+	document.getElementById("lectureTextTotal").innerHTML = lectureTextTotal.toFixed(2);
 	
 	let lectureVideo = document.getElementById("lectureVideo").value;
 	let lectureVideoTotal = lectureVideo * 1.5 / 60;
-	document.getElementById("lectureVideoTotal").innerHTML = lectureVideoTotal.toFixed(4);
+	document.getElementById("lectureVideoTotal").innerHTML = lectureVideoTotal.toFixed(2);
 	
 	let readingArticles = document.getElementById("readingArticles").value;
 	let readingArticlesTotal = readingArticles / 180 / 60;
-	document.getElementById("readingArticlesTotal").innerHTML = readingArticlesTotal.toFixed(4);
+	document.getElementById("readingArticlesTotal").innerHTML = readingArticlesTotal.toFixed(2);
 	
 	let paperbackBook = document.getElementById("paperbackBook").value;
 	let paperbackBookTotal = paperbackBook / 24;
-	document.getElementById("paperbackBookTotal").innerHTML = paperbackBookTotal.toFixed(4);
+	document.getElementById("paperbackBookTotal").innerHTML = paperbackBookTotal.toFixed(2);
 	
 	let academicMonograph = document.getElementById("academicMonograph").value;
 	let academicMonographTotal = academicMonograph / 18;
-	document.getElementById("academicMonographTotal").innerHTML = academicMonographTotal.toFixed(4);
+	document.getElementById("academicMonographTotal").innerHTML = academicMonographTotal.toFixed(2);
 	
 	let textbookReadings = document.getElementById("textbookReadings").value;
 	let textbookReadingsTotal = textbookReadings / 14;
-	document.getElementById("textbookReadingsTotal").innerHTML = textbookReadingsTotal.toFixed(4);
+	document.getElementById("textbookReadingsTotal").innerHTML = textbookReadingsTotal.toFixed(2);
 	
 	let reflectionNarrative = document.getElementById("reflectionNarrative").value;
 	let reflectionNarrativeTotal = reflectionNarrative / 250;
-	document.getElementById("reflectionNarrativeTotal").innerHTML = reflectionNarrativeTotal.toFixed(4);
+	document.getElementById("reflectionNarrativeTotal").innerHTML = reflectionNarrativeTotal.toFixed(2);
 	
 	let argument = document.getElementById("argument").value;
 	let argumentTotal = argument / 125;
-	document.getElementById("argumentTotal").innerHTML = argumentTotal.toFixed(4);
+	document.getElementById("argumentTotal").innerHTML = argumentTotal.toFixed(2);
 	
 	let research = document.getElementById("research").value;
 	let researchTotal = research / 62.5;
-	document.getElementById("researchTotal").innerHTML = researchTotal.toFixed(4);
+	document.getElementById("researchTotal").innerHTML = researchTotal.toFixed(2);
 	
 	let caseStudy = document.getElementById("caseStudy").value;
 	let caseStudyTotal = caseStudy / 500;
-	document.getElementById("caseStudyTotal").innerHTML = caseStudyTotal.toFixed(4);
+	document.getElementById("caseStudyTotal").innerHTML = caseStudyTotal.toFixed(2);
 	
 	let practiceActivities = document.getElementById("practiceActivities").value;
 	let practiceActivitiesTotal = practiceActivities * 1;
-	document.getElementById("practiceActivitiesTotal").innerHTML = practiceActivitiesTotal.toFixed(4);
+	document.getElementById("practiceActivitiesTotal").innerHTML = practiceActivitiesTotal.toFixed(2);
 	
 	let projects = document.getElementById("projects").value;
 	let projectsTotal = projects * 1;
-	document.getElementById("projectsTotal").innerHTML = projectsTotal.toFixed(4);
+	document.getElementById("projectsTotal").innerHTML = projectsTotal.toFixed(2);
 	
 	let studyHours = document.getElementById("studyHours").value;
 	let studyHoursTotal = studyHours * 1;
-	document.getElementById("studyHoursTotal").innerHTML = studyHoursTotal.toFixed(4);
+	document.getElementById("studyHoursTotal").innerHTML = studyHoursTotal.toFixed(2);
 	
 	let quizQuestions = document.getElementById("quizQuestions").value;
 	let quizQuestionsTotal = quizQuestions * 3 /60;
-	document.getElementById("quizQuestionsTotal").innerHTML = quizQuestionsTotal.toFixed(4);
+	document.getElementById("quizQuestionsTotal").innerHTML = quizQuestionsTotal.toFixed(2);
 	
 	let practiceQuestions = document.getElementById("practiceQuestions").value;
 	let practiceQuestionsTotal = practiceQuestions * 1.5 / 60;
-	document.getElementById("practiceQuestionsTotal").innerHTML = practiceQuestionsTotal.toFixed(4);
+	document.getElementById("practiceQuestionsTotal").innerHTML = practiceQuestionsTotal.toFixed(2);
 	
 	//calculates goal totals
 	let creditHours = document.getElementById("courseCredits").innerHTML;
@@ -231,20 +231,20 @@ function calculate(){
 	document.getElementById("moduleGoal").innerHTML = moduleGoal + " Hours";
 	
 	//calculates actual hours
-	actualContactHours = aboutTotal + introductionTotal + videoTotal + podcastTotal + discussionTextTotal + discussionVideoTotal + meetingsTotal + lectureTextTotal + lectureVideoTotal;
-	document.getElementById("actualContactHours").innerHTML = actualContactHours.toFixed(4);
+	actualContactHours = /*aboutTotal + introductionTotal + */ videoTotal + podcastTotal + /*discussionTextTotal + discussionVideoTotal +*/ meetingsTotal + lectureTextTotal + lectureVideoTotal;
+	document.getElementById("actualContactHours").innerHTML = actualContactHours.toFixed(2);
 	actualIndependentHours = readingArticlesTotal + paperbackBookTotal + academicMonographTotal + textbookReadingsTotal + reflectionNarrativeTotal + argumentTotal + researchTotal + caseStudyTotal + practiceActivitiesTotal + projectsTotal + studyHoursTotal + quizQuestionsTotal + practiceQuestionsTotal;
-	document.getElementById("actualIndependentHours").innerHTML = actualIndependentHours.toFixed(4);
+	document.getElementById("actualIndependentHours").innerHTML = actualIndependentHours.toFixed(2);
 	actualModuleHours = actualContactHours + actualIndependentHours;
-	document.getElementById("actualModuleHours").innerHTML = actualModuleHours.toFixed(4);
+	document.getElementById("actualModuleHours").innerHTML = actualModuleHours.toFixed(2);
 	
 	contactHoursDifference = contactHoursGoal - actualContactHours;
 	independentHoursDifference = independentHoursGoal - actualIndependentHours;
 	moduleHoursDifference = moduleGoal - actualModuleHours;
 	
-	document.getElementById("contactHoursDifference").innerHTML = contactHoursDifference.toFixed(4);
-	document.getElementById("independentHoursDifference").innerHTML = independentHoursDifference.toFixed(4);
-	document.getElementById("moduleHoursDifference").innerHTML = moduleHoursDifference.toFixed(4);
+	document.getElementById("contactHoursDifference").innerHTML = contactHoursDifference.toFixed(2);
+	document.getElementById("independentHoursDifference").innerHTML = independentHoursDifference.toFixed(2);
+	document.getElementById("moduleHoursDifference").innerHTML = moduleHoursDifference.toFixed(2);
 	
 	console.log(Math.abs(contactHoursDifference));
 	console.log(contactHoursGoal * .1);

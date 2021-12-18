@@ -37,11 +37,40 @@ nav {
    text-align: center;
 }
 
-fieldset{
-   background-color: rgb(208 222 187);
+.fieldsetheight{
+  height:100px;
+  display:table;
   
 }
+fieldsetrow{
+	display:table-row;
+	height:100px;	
+}
+.singlefieldset{
+	padding-left:10px;
+	padding-right:10px;
+	display:table-cell;
+	height:100px;
+	width:50em;
+	vertical-align: middle;
+}
+fieldset{
+	height:100%;
+	width:100%;
+	vertical-align: middle;
+	line-height:25px;
+	
+}
+.course-fieldset{
+	height:100%;
+	width:100%;
+	line-height:20px;
+}
 
+.block{
+	display:flex;
+	justify-content:space-evenly;
+}
 p{
    font-family: 'Freight Sans Pro', Geneva, Calibri;
 }
@@ -55,6 +84,7 @@ button{
 }
 legend{
 	font-weight:bold;
+	font-size:20px;
 }
 .results{
    padding-top: 50px;
@@ -75,7 +105,7 @@ legend{
 }
 
 .module{
-   margin-left: 100px;
+   
    box-shadow: 10px 10px rgb(40 92 77);
    border-style: solid;
    margin-bottom: 30px;
@@ -86,7 +116,7 @@ legend{
 }
 
 .module fieldset{
-   width: 30%;
+   width: 100%;
     float:left;
 }
 
@@ -128,6 +158,7 @@ legend{
 	width:100%;
 	margin-bottom: 10px;
 	margin-top: 10px;
+	height:auto;
 }
 .contactHours1{
 	display:inline-block;

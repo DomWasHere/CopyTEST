@@ -1,8 +1,13 @@
 package com.tulane.workloadcalculator.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +32,22 @@ public class CourseController {
 	
 	@Autowired
 	private ModuleService moduleService;
+	
+	/*@GetMapping(value={"/moreinfo"})
+	public String getMoreInfo() {
+		return "SoPAWorkLoadCalculatorOverview.pdf";
+	}*/
+	
+	/*@GetMapping(value = "/moreinfo")
+    public void showPDF(HttpServletResponse response) throws IOException {
+        response.setContentType("application/pdf");
+        //response.setHeader("Content-Disposition", "attachment; filename=\"demo.pdf\"");
+        InputStream inputStream = new FileInputStream(new File("../SoPAWorkloadCalculatorOverview.pdf"));
+        int nRead;
+        while ((nRead = inputStream.read()) != -1) {
+            response.getWriter().write(nRead);
+        }
+    } */
 	
 	@GetMapping(value= {"/home", "/"})
 	public String getHome() {
