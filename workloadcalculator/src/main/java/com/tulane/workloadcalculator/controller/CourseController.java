@@ -133,12 +133,16 @@ public class CourseController {
 		module.setCourse(course);
 		module.setId(moduleId);
 		module.setModuleNumber(module.getModuleNumber());
+		/*
 		module.setAboutPages(Float.parseFloat(req.getParameter("aboutPages")));
 		module.setIntroductionText(Float.parseFloat(req.getParameter("introductionText")));
+		*/
 		module.setVideo(Double.parseDouble(req.getParameter("video")));
 		module.setPodcast(Double.parseDouble(req.getParameter("podcast")));
 		module.setDiscussionText(Double.parseDouble(req.getParameter("discussionText")));
+		/*
 		module.setDiscussionVideo(Double.parseDouble(req.getParameter("discussionVideo")));
+		*/
 		module.setMeetings(Double.parseDouble(req.getParameter("meetings")));
 		module.setMeetingsLength(Double.parseDouble(req.getParameter("meetingsLength")));
 		module.setLectureText(Double.parseDouble(req.getParameter("lectureText")));

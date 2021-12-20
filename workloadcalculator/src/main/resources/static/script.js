@@ -146,10 +146,10 @@ function calculate(){
 	let podcastTotal = podcastTime * 1.5 /60;
 	document.getElementById("podcastTotal").innerHTML = podcastTotal.toFixed(2);
 	
-	/*let discussionText = document.getElementById("discussionText").value;
+	let discussionText = document.getElementById("discussionText").value;
 	let discussionTextTotal = discussionText / 125;
-	document.getElementById("discussionTextTotal").innerHTML = discussionTextTotal.toFixed(4);
-	
+	document.getElementById("discussionTextTotal").innerHTML = discussionTextTotal.toFixed(2);
+	/*
 	let discussionVideo = document.getElementById("discussionVideo").value;
 	let discussionVideoTotal = discussionVideo * 1.5 / 60;
 	document.getElementById("discussionVideoTotal").innerHTML = discussionVideoTotal.toFixed(4);
@@ -220,15 +220,15 @@ function calculate(){
 	document.getElementById("practiceQuestionsTotal").innerHTML = practiceQuestionsTotal.toFixed(2);
 	
 	//calculates goal totals
-	let creditHours = document.getElementById("courseCredits").innerHTML;
+	let creditHours = parseFloat(document.getElementById("courseCredits").innerHTML);
 	let courseHours = creditHours * 37.5 - 4.5;
 	let moduleGoal = courseHours / 12;
 	let contactHoursGoal = moduleGoal / 3;
 	let independentHoursGoal = contactHoursGoal * 2;
 	
-	document.getElementById("contactGoals").innerHTML = creditHours + " Hours";
-	document.getElementById("independentGoals").innerHTML = independentHoursGoal + " Hours";
-	document.getElementById("moduleGoal").innerHTML = moduleGoal + " Hours";
+	document.getElementById("contactGoals").innerHTML = contactHoursGoal.toFixed(2) + " Hours";
+	document.getElementById("independentGoals").innerHTML = independentHoursGoal.toFixed(2) + " Hours";
+	document.getElementById("moduleGoal").innerHTML = moduleGoal.toFixed(2) + " Hours";
 	
 	//calculates actual hours
 	actualContactHours = /*aboutTotal + introductionTotal + */ videoTotal + podcastTotal + /*discussionTextTotal + discussionVideoTotal +*/ meetingsTotal + lectureTextTotal + lectureVideoTotal;
@@ -238,9 +238,9 @@ function calculate(){
 	actualModuleHours = actualContactHours + actualIndependentHours;
 	document.getElementById("actualModuleHours").innerHTML = actualModuleHours.toFixed(2);
 	
-	contactHoursDifference = contactHoursGoal - actualContactHours;
-	independentHoursDifference = independentHoursGoal - actualIndependentHours;
-	moduleHoursDifference = moduleGoal - actualModuleHours;
+	contactHoursDifference = actualContactHours - contactHoursGoal;
+	independentHoursDifference = actualIndependentHours - independentHoursGoal;
+	moduleHoursDifference = actualModuleHours - moduleGoal;
 	
 	document.getElementById("contactHoursDifference").innerHTML = contactHoursDifference.toFixed(2);
 	document.getElementById("independentHoursDifference").innerHTML = independentHoursDifference.toFixed(2);
@@ -250,24 +250,24 @@ function calculate(){
 	console.log(contactHoursGoal * .1);
 	
 	//Red text to show differences are out of range
-	if (Math.abs(contactHoursDifference) > (contactHoursGoal * .1)){
+	if (Math.abs(contactHoursDifference) > (1)){
 		document.getElementById("contactHoursDifference").style.color = "red";
 	}
-	if (Math.abs(contactHoursDifference) < (contactHoursGoal * .1)){
+	if (Math.abs(contactHoursDifference) < (1)){
 		document.getElementById("contactHoursDifference").style.color = "black";
 	}
 	
-	if (Math.abs(independentHoursDifference) > (independentHoursGoal * .1)){
+	if (Math.abs(independentHoursDifference) > (1)){
 		document.getElementById("independentHoursDifference").style.color = "red";
 	}
-	if (Math.abs(independentHoursDifference) < (independentHoursGoal * .1)){
+	if (Math.abs(independentHoursDifference) < (1)){
 		document.getElementById("independentHoursDifference").style.color = "black";
 	}
 	
-	if (Math.abs(moduleHoursDifference) > (moduleGoal * .1)){
+	if (Math.abs(moduleHoursDifference) > (1)){
 		document.getElementById("moduleHoursDifference").style.color = "red";
 	}
-	if (Math.abs(moduleHoursDifference) < (moduleGoal * .1)){
+	if (Math.abs(moduleHoursDifference) < (1)){
 		document.getElementById("moduleHoursDifference").style.color = "black";
 	}
 }
